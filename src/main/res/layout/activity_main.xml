@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    >
+
+    <FrameLayout
+        android:id="@+id/host_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="30dp"
+        />
+    <View
+        android:id="@+id/unclickable_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        />
+
+    <ImageButton
+        android:id="@+id/contacts"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/host_view"
+        android:background="@android:color/transparent"
+        android:src="@drawable/phone"
+        android:layout_marginStart="40dp"
+        android:scaleType="fitXY"
+        />
+    <com.example.simplelauncher.CustomFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacts"
+        android:text="打电话"
+        android:textSize="18sp"
+        android:layout_alignStart="@+id/contacts"
+        android:layout_alignEnd="@+id/contacts"
+        android:gravity="center"
+        android:shadowColor="@android:color/darker_gray"
+        android:shadowRadius="3"
+        android:shadowDx="3"
+        android:shadowDy="3"
+
+        />
+    <ImageButton
+        android:id="@+id/gallery"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_below="@+id/host_view"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/transparent"
+        android:src="@drawable/picture"
+        android:scaleType="fitXY"
+        android:layout_marginEnd="40dp"
+        />
+    <com.example.simplelauncher.CustomFontTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gallery"
+        android:text="看照片"
+        android:textSize="18sp"
+        android:layout_alignStart="@+id/gallery"
+        android:layout_alignEnd="@+id/gallery"
+        android:gravity="center"
+        android:shadowColor="@android:color/darker_gray"
+        android:shadowRadius="3"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        />
+
+</RelativeLayout>
