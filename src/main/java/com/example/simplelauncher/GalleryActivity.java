@@ -140,4 +140,10 @@ public class GalleryActivity extends Activity implements LoaderManager.LoaderCal
         super.onDestroy();
         Log.e("TEST","Gallery Destory");
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.scale_up,R.anim.scale_down);
+    }
 }

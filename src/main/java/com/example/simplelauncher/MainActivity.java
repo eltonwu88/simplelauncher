@@ -1,6 +1,7 @@
 package com.example.simplelauncher;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.WallpaperManager;
 import android.appwidget.AppWidgetHost;
 import android.appwidget.AppWidgetHostView;
@@ -81,7 +82,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         }else if(v.equals(mGalleryButton)){
             startActivity(new Intent(this,GalleryActivity.class));
         }
-
+        overridePendingTransition(R.anim.scale_up,R.anim.scale_down);
     }
 
     @Override
@@ -209,5 +210,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
     protected void onDestroy() {
         super.onDestroy();
         Log.e("TEST","Main Destory");
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.e("TEST","Main onNewIntent");
+        overridePendingTransition(R.anim.scale_up,R.anim.scale_down);
     }
 }

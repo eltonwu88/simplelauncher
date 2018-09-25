@@ -111,4 +111,10 @@ public class ContactsActivity extends Activity implements LoaderManager.LoaderCa
         mContactsAdapter.setCursor(null);
         Log.e("TEST","Contacts Destory");
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.scale_up,R.anim.scale_down);
+    }
 }

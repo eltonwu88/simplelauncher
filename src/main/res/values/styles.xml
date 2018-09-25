@@ -9,19 +9,43 @@
     </style>
 
     <style name="FullScreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <!--<item name="android:windowAnimationStyle">@style/AnimationStyle</item>-->
         <item name="android:background">@android:color/black</item>
+        <!--<item name="android:windowReenterTransition">@null</item>-->
+        <!--<item name="android:windowExitTransition">@null</item>-->
+        <!--<item name="android:windowEnterTransition">@null</item>-->
+        <!--<item name="android:windowReturnTransition">@null</item>-->
     </style>
 
     <style name="MainScreenTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowAnimationStyle">@style/AnimationStyle</item>
+        <!--<item name="android:windowReenterTransition">@android:transition/fade</item>-->
+        <!--<item name="android:windowExitTransition">@android:transition/fade</item>-->
+        <!--<item name="android:windowEnterTransition">@android:transition/fade</item>-->
+        <!--<item name="android:windowReturnTransition">@android:transition/fade</item>-->
     </style>
 
 
-    <style name="AnimationStyle" parent="@android:style/Animation.Translucent">
-        <item name="android:activityOpenEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@android:anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@android:anim/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@android:anim/fade_out</item>
+    <style name="AnimationStyle" parent="@android:style/Animation">
+        <!--<item name="android:windowExitAnimation">@null</item>-->
+        <!--<item name="android:windowShowAnimation">@null</item>-->
+        <!--<item name="android:windowReturnTransition">@null</item>-->
+        <!--<item name="android:windowEnterAnimation">@null</item>-->
+        <!--<item name="android:windowHideAnimation">@null</item>-->
+        <!--<item name="android:activityOpenEnterAnimation">@anim/scale_up</item>-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/scale_down</item>-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/scale_up</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/scale_down</item>-->
+        <item name="android:taskOpenExitAnimation">@anim/scale_down</item>
+        <item name="android:taskCloseExitAnimation">@anim/scale_down</item>
+        <item name="android:taskOpenEnterAnimation">@anim/scale_up</item>
+        <item name="android:taskCloseEnterAnimation">@anim/scale_up</item>
+        <item name="android:taskToFrontExitAnimation">@anim/scale_down</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/scale_up</item>
+        <item name="android:taskToBackExitAnimation">@anim/scale_down</item>
+        <item name="android:taskToBackEnterAnimation">@anim/scale_up</item>
+        <item name="android:launchTaskBehindSourceAnimation">@anim/scale_down</item>
+        <item name="android:launchTaskBehindTargetAnimation">@anim/scale_up</item>
     </style>
 
 </resources>
