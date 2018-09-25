@@ -28,7 +28,6 @@
         <activity android:name=".MainActivity"
             android:theme="@style/MainScreenTheme"
             android:launchMode="singleTask"
-            android:clearTaskOnLaunch="true"
             android:screenOrientation="portrait"
             >
             <intent-filter>
