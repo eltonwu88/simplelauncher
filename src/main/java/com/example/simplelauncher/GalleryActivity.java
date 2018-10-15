@@ -3,9 +3,12 @@ package com.example.simplelauncher;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.app.LoaderManager;
+import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -40,7 +43,21 @@ public class GalleryActivity extends Activity implements LoaderManager.LoaderCal
 
         Transition transition = TransitionInflater.from(this).inflateTransition(android.R.transition.explode);
         getWindow().setExitTransition(transition);
+
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(mScreenOffReceiver,intentFilter);
     }
+
+    private BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent == null) return;
+
+            if(Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
+                finish();
+            }
+        }
+    };
 
     private void test(){
         ContentResolver contentResolver = getContentResolver();
@@ -139,6 +156,7 @@ public class GalleryActivity extends Activity implements LoaderManager.LoaderCal
     protected void onDestroy() {
         super.onDestroy();
         Log.e("TEST","Gallery Destory");
+        unregisterReceiver(mScreenOffReceiver);
     }
 
     @Override

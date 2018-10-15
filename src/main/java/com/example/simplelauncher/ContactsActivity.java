@@ -3,8 +3,11 @@ package com.example.simplelauncher;
 import android.Manifest;
 import android.app.Activity;
 import android.app.LoaderManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -63,7 +66,20 @@ public class ContactsActivity extends Activity implements LoaderManager.LoaderCa
 //            }
 //        }
         Log.e("TEST","Contacts create :"+getTaskId());
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(mScreenOffReceiver,intentFilter);
     }
+
+    private BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent == null) return;
+
+            if(Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
+                finish();
+            }
+        }
+    };
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -110,6 +126,7 @@ public class ContactsActivity extends Activity implements LoaderManager.LoaderCa
         super.onDestroy();
         mContactsAdapter.setCursor(null);
         Log.e("TEST","Contacts Destory");
+        unregisterReceiver(mScreenOffReceiver);
     }
 
     @Override

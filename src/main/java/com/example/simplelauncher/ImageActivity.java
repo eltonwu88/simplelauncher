@@ -1,6 +1,9 @@
 package com.example.simplelauncher;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,6 +35,26 @@ public class ImageActivity extends FragmentActivity {
         viewPager.setCurrentItem(position);
 
         hideStatusBarNavigationBar();
+
+        IntentFilter intentFilter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+        registerReceiver(mScreenOffReceiver,intentFilter);
+    }
+
+    private BroadcastReceiver mScreenOffReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(intent == null) return;
+
+            if(Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
+                finish();
+            }
+        }
+    };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(mScreenOffReceiver);
     }
 
     private FragmentStatePagerAdapter mPagerAdapter = new FragmentStatePagerAdapter(getSupportFragmentManager()) {
