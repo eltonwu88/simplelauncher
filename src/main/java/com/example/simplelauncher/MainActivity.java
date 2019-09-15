@@ -1,4 +1,4 @@
-package com.example.simplelauncher;
+﻿package com.example.simplelauncher;
 
 import android.app.Activity;
 import android.app.ActivityOptions;
@@ -61,6 +61,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         initAppWidget();
 
         PermissionsUtil.checkAndRequestPermissions(this);
+
+        //add a blank commit
     }
 
     @Override
