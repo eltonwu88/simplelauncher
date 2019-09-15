@@ -6,4 +6,3 @@
 #### ContactsProvider
 #### Activity Transition
 #### Usage of universal-image-loader
-ddasdas
